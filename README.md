@@ -10,11 +10,11 @@
 
 ### Saque
 
-- [ ] Deve ser permitido a realização de apenas três saques;
-- [ ] Deve existir um limite máximo de 500 reais por saque;
-- [ ] Caso o usuário não tenha saldo, deve ser exibida uma mensagem de erro;
-- [ ] Todos os saques devem ser armazenados;
-- [ ] Todos os saques devem ser exibidos na opção de extrato.
+- [X] Deve ser permitido a realização de apenas três saques;
+- [X] Deve existir um limite máximo de 500 reais por saque;
+- [X] Caso o usuário não tenha saldo, deve ser exibida uma mensagem de erro;
+- [X] Todos os saques devem ser armazenados;
+- [X] Todos os saques devem ser exibidos na opção de extrato.
 
 ### Extrato
 
