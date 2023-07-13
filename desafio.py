@@ -52,4 +52,8 @@ while True:
         print(f"\nSaldo: R${saldo:.2f}")
         print("=================================")
 
-    
+    elif (opcao == "q"):
+        break
+
+    else:
+        print("Operação inválida, por favor digite novamente a operação desejada.")
