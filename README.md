@@ -18,6 +18,6 @@
 
 ### Extrato
 
-- [ ] Deve listar todas as operações realizadas na conta;
-- [ ] No fim da listagem deve ser exibido o saldo atual da conta;
-- [ ] Os valores devem ser exibidos utilizando o formato: "R$ xxxx.xx".
+- [X] Deve listar todas as operações realizadas na conta;
+- [X] No fim da listagem deve ser exibido o saldo atual da conta;
+- [X] Os valores devem ser exibidos utilizando o formato: "R$ xxxx.xx".
