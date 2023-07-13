@@ -25,4 +25,23 @@ while True:
 
         else:
             print("Operação não concluída: o valor informado é inválido.")
-            
+
+    elif (opcao == "s"):
+        valor = float(input("Informe o valor do saque: "))
+        
+        if (valor > saldo):
+            print("Operação não concluída: não há saldo suficiente em conta.")
+
+        elif (valor > limite):
+            print("Operação não concluída: você excedeu o limite máximo de saque.")
+
+        elif (numero_saques > LIMITE_SAQUES):
+            print("Operação não concluída: você excedeu o limite máximo de saques diários.")
+
+        elif (valor > 0):
+            saldo -= valor
+            extrato += f"Saque: R${valor:.2f}\n"
+            numero_saques += 1
+
+        else:
+            print("Operação não concluída: o valor informado é inválido.")
