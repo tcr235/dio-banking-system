@@ -4,9 +4,9 @@
 
 ### Depósito
 
-- [ ] Deve ser possível depositar apenas valores positivos;
-- [ ] Todos os depósitos devem ser armazenados em uma variável;
-- [ ] Todos os depósitos devem ser exibidos na opção de extrato.
+- [X] Deve ser possível depositar apenas valores positivos;
+- [X] Todos os depósitos devem ser armazenados em uma variável;
+- [X] Todos os depósitos devem ser exibidos na opção de extrato.
 
 ### Saque
 
