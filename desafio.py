@@ -70,8 +70,15 @@ def filtrar_usuario(cpf, usuarios):
     else:
         return None
 
-def criar_conta():
-    pass
+def criar_conta(agencia, numero_conta, usuarios):
+    cpf = input("Digite seu cpf: ")
+    usuario = filtrar_usuario(cpf, usuarios)
+
+    if (usuario):
+        print("Conta criada com sucesso!!")
+        return {"agencia": agencia, "numero_conta": numero_conta, "usuario": usuario}
+    
+    print("Usuário não encontrado. Criação de conta encerrada.")
 
 def listar_contas():
     pass
@@ -83,6 +90,8 @@ def main():
     numero_saques = 0
     LIMITE_SAQUES = 3
     AGENCIA = "0001"
+    usuarios = []
+    contas = []
 
     while True:
         opcao = menu()
@@ -106,6 +115,19 @@ def main():
 
         elif (opcao == "e"):
             exibir_extrato(saldo, extrato=extrato)
+
+        elif (opcao == "nu"):
+            criar_usuario(usuarios)
+
+        elif (opcao == "nc"):
+            numero_conta = len(contas) + 1
+            conta = criar_conta(AGENCIA, numero_conta, usuarios)
+
+            if (conta):
+                contas.append(conta)
+
+        elif (opcao == "lc"):
+            pass
 
         elif (opcao == "q"):
             break
