@@ -42,8 +42,11 @@ def sacar(*, saldo, valor, extrato, limite, numero_saques, limite_saques):
 
     return saldo, extrato
 
-def exibir_extrato():
-    pass
+def exibir_extrato(saldo, /, *, extrato):
+    print("\n=========== EXTRATO ===========")
+    print("Não foram realizadas movimentações." if not extrato else extrato)
+    print(f"\nSaldo: R${saldo:.2f}")
+    print("=================================")
 
 def criar_usuario():
     pass
@@ -66,7 +69,7 @@ def main():
     AGENCIA = "0001"
 
     while True:
-        opcao = input(menu)
+        opcao = menu()
 
         if (opcao == "d"):
             valor = float(input("Digite o valor a ser depositado: "))
@@ -86,10 +89,7 @@ def main():
             )
 
         elif (opcao == "e"):
-            print("\n=========== EXTRATO ===========")
-            print("Não foram realizadas movimentações." if not extrato else extrato)
-            print(f"\nSaldo: R${saldo:.2f}")
-            print("=================================")
+            exibir_extrato(saldo, extrato=extrato)
 
         elif (opcao == "q"):
             break
