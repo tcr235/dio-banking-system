@@ -80,8 +80,15 @@ def criar_conta(agencia, numero_conta, usuarios):
     
     print("Usuário não encontrado. Criação de conta encerrada.")
 
-def listar_contas():
-    pass
+def listar_contas(contas):
+    for conta in contas:
+        linha = f"""\
+            Agência: {conta["agencia"]}
+            C/C: {conta["numero_conta"]}
+            Titular: {conta["usuario"]["nome"]}
+        """
+        print("=" * 100)
+        print(linha)
 
 def main():
     saldo = 0
@@ -127,7 +134,7 @@ def main():
                 contas.append(conta)
 
         elif (opcao == "lc"):
-            pass
+            listar_contas(contas)
 
         elif (opcao == "q"):
             break
