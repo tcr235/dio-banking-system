@@ -12,8 +12,15 @@ def menu():
     """
     return input(menu)
 
-def depositar():
-    pass
+def depositar(saldo, valor, extrato, /):
+    if (valor > 0):
+        saldo += valor
+        extrato += f"Depósito: R${valor:.2f}\n"
+
+    else:
+        print("Operação não concluída: o valor informado é inválido.")
+
+    return saldo, extrato
 
 def sacar():
     pass
@@ -47,12 +54,8 @@ def main():
         if (opcao == "d"):
             valor = float(input("Digite o valor a ser depositado: "))
 
-            if (valor > 0):
-                saldo += valor
-                extrato += f"Depósito: R${valor:.2f}\n"
-
-            else:
-                print("Operação não concluída: o valor informado é inválido.")
+            saldo, extrato = depositar(saldo, valor, extrato)
+            
 
         elif (opcao == "s"):
             valor = float(input("Informe o valor do saque: "))
@@ -85,3 +88,5 @@ def main():
 
         else:
             print("Operação inválida, por favor digite novamente a operação desejada.")
+
+main()
