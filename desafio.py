@@ -1,6 +1,5 @@
 def menu():
     menu = """
-
     [d] Depositar
     [s] Sacar
     [e] Extrato
@@ -48,11 +47,28 @@ def exibir_extrato(saldo, /, *, extrato):
     print(f"\nSaldo: R${saldo:.2f}")
     print("=================================")
 
-def criar_usuario():
-    pass
+def criar_usuario(usuarios):
+    cpf = input("Informe seu cpf: ")
+    usuario = filtrar_usuario(cpf, usuarios)
 
-def filtrar_usuario():
-    pass
+    if (usuario):
+        print("Esse cpf já está cadastrado!")
+        return
+    
+    nome = input("Digite seu nome completo: ")
+    data_nascimento = input("Digite sua data de nascimento (dd-mm-aa): ")
+    endereco = input("Digite seu endereço: ")
+    usuarios.append({"nome": nome, "data_nascimento": data_nascimento, "cpf": cpf, "endereco": endereco})
+    print("Usuário criado com sucesso!!!!")
+
+def filtrar_usuario(cpf, usuarios):
+    usuarios_filtrados = [usuario for usuario in usuarios if usuario["cpf"] == cpf]
+    
+    if (usuarios_filtrados):
+        return usuarios_filtrados[0]
+    
+    else:
+        return None
 
 def criar_conta():
     pass
