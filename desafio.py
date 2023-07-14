@@ -22,8 +22,25 @@ def depositar(saldo, valor, extrato, /):
 
     return saldo, extrato
 
-def sacar():
-    pass
+def sacar(*, saldo, valor, extrato, limite, numero_saques, limite_saques):
+    if (valor > saldo):
+        print("Operação não concluída: não há saldo suficiente em conta.")
+
+    elif (valor > limite):
+        print("Operação não concluída: você excedeu o limite máximo de saque.")
+
+    elif (numero_saques > limite_saques):
+        print("Operação não concluída: você excedeu o limite máximo de saques diários.")
+
+    elif (valor > 0):
+        saldo -= valor
+        extrato += f"Saque: R${valor:.2f}\n"
+        numero_saques += 1
+
+    else:
+        print("Operação não concluída: o valor informado é inválido.")
+
+    return saldo, extrato
 
 def exibir_extrato():
     pass
@@ -55,27 +72,18 @@ def main():
             valor = float(input("Digite o valor a ser depositado: "))
 
             saldo, extrato = depositar(saldo, valor, extrato)
-            
 
         elif (opcao == "s"):
             valor = float(input("Informe o valor do saque: "))
             
-            if (valor > saldo):
-                print("Operação não concluída: não há saldo suficiente em conta.")
-
-            elif (valor > limite):
-                print("Operação não concluída: você excedeu o limite máximo de saque.")
-
-            elif (numero_saques > LIMITE_SAQUES):
-                print("Operação não concluída: você excedeu o limite máximo de saques diários.")
-
-            elif (valor > 0):
-                saldo -= valor
-                extrato += f"Saque: R${valor:.2f}\n"
-                numero_saques += 1
-
-            else:
-                print("Operação não concluída: o valor informado é inválido.")
+            saldo, extrato = sacar(
+                saldo=saldo,
+                valor=valor,
+                extrato=extrato,
+                limite=limite,
+                numero_saques=numero_saques,
+                limite_saques=LIMITE_SAQUES
+            )
 
         elif (opcao == "e"):
             print("\n=========== EXTRATO ===========")
